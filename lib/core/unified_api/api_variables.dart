@@ -1,5 +1,8 @@
 import 'dart:developer';
 
+import 'package:trippo/core/constants/apis/api_url.dart';
+import 'package:trippo/core/unified_api/get_api.dart';
+
 class ApiVariables {
   final _scheme = 'http';
   final _host = '192.168.137.1';
@@ -20,4 +23,19 @@ class ApiVariables {
     return uri;
   }
 
+  Uri getCity({required Map<String, dynamic> params}) {
+    return _mainUri(path: ApiUrls.getCityById, queryParameters: params);
+  }
+
+  Uri getHotelsOfCity({required Map<String, dynamic> params}) {
+    return _mainUri(path: ApiUrls.getHotelsOfCity, queryParameters: params);
+  }
+
+  Uri getRestaurantsOfCity({required Map<String, dynamic> params}) {
+    return _mainUri(path: ApiUrls.getRestaurantsOfCity, queryParameters: params);
+  }
+
+  Uri getThingsToDoCity({required Map<String, dynamic> params}) {
+    return _mainUri(path: ApiUrls.getThingsToDoOfCity, queryParameters: params);
+  }
 }

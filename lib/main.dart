@@ -6,6 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:trippo/features/authentication/presentation/screens/authentication_screen.dart';
 import 'package:trippo/features/city/presentation/screens/city_screen.dart';
+import 'package:trippo/features/city/presentation/widgets/loading.dart';
 import 'package:trippo/features/profile/presentation/pages/profile_screen.dart';
 
 import 'core/bloc/language_manager/language_manager_bloc.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
             ],
             title: 'Trippo',
             theme: ThemeApp().getTheme(),
-            home: const MainScreen(),
+            home: const LoadingScreen(),
             onGenerateRoute: AppRouter.onGenerateRoute,
           );
         },
