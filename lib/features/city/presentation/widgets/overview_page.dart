@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_lorem/flutter_lorem.dart';
+import 'package:trippo/features/city/presentation/screens/city_images_screen.dart';
+import 'package:trippo/features/city/presentation/screens/city_screen.dart';
 
 import '../../../../core/config/app_text_styles.dart';
 import '../../../../core/constants/images/svg_images.dart';
@@ -43,10 +45,16 @@ class _OverviewPageState extends State<OverviewPage> {
                     currentPageIndex.value = value;
                   },
                   itemBuilder: (context, index) {
-                    return CacheImage(
-                      width: size.width,
-                      height: size.width * 0.68,
-                      imageUrl: testImageUrl,
+                    return GestureDetector(
+                      onTap: (){
+                    Navigator.of(context).pushNamed(CityImagesScreen.routeName);
+                        
+                      },
+                      child: CacheImage(
+                        width: size.width,
+                        height: size.width * 0.68,
+                        imageUrl: testImageUrl,
+                      ),
                     );
                   },
                   itemCount: 10,

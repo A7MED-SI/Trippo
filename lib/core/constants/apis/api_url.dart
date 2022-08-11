@@ -4,4 +4,7 @@ class ApiUrls{
   static String getHotelsOfCity="";
   static String getRestaurantsOfCity="";
   static String getThingsToDoOfCity="";
+  static String getCityImages="";
+  static String getPlaceImages="";
+
 }

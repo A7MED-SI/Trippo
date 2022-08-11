@@ -9,7 +9,7 @@ class GetCityRemoteDataSource {
     GetApi getApiCity = GetApi(
       uri: ApiVariables().getCity(params: params),
       
-      fromJson: (String json) => CityModel.fromJson(jsonDecode(json)["data"]),
+      fromJson: (String json) => CityModel.fromJson(jsonDecode(json)["data"]["city"]),
     );
 
     return await getApiCity.callRequest();

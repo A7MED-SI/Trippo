@@ -23,6 +23,13 @@ class ApiVariables {
     return uri;
   }
 
+Uri getPalceImages({required Map<String, dynamic> params}){
+    return _mainUri(path: ApiUrls.getPlaceImages,queryParameters: params);
+  }
+  Uri getCityImages({required Map<String, dynamic> params}){
+    return _mainUri(path: ApiUrls.getCityImages,queryParameters: params);
+  }
+
   Uri getCity({required Map<String, dynamic> params}) {
     return _mainUri(path: ApiUrls.getCityById, queryParameters: params);
   }

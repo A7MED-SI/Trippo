@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
-import 'package:trippo/features/city/presentation/bloc/city_bloc.dart';
+import 'package:trippo/features/city/presentation/bloc/city_bloc/city_bloc.dart';
 import 'package:trippo/features/city/presentation/widgets/loading.dart';
 import 'package:trippo/features/map/presentation/widgets/map_list_image.dart';
 import 'package:trippo/injection.dart';
@@ -46,13 +46,13 @@ class _CityScreenState extends State<CityScreen> with TickerProviderStateMixin {
       child: Scaffold(
         body: BlocBuilder<CityBloc, CityState>(
           builder: (context, state) {
-            if (state.cityStatus == GetCityStatus.loading ||
-                state.cityStatus == GetCityStatus.initial) {
-              return const LoadingScreen();
-            } else if (state.cityStatus == GetCityStatus.failure) {
-              //TODO:create fail Bloc
-              return Container();
-            } else {
+            // if (state.cityStatus == GetCityStatus.loading ||
+            //     state.cityStatus == GetCityStatus.initial) {
+            //   return const LoadingScreen();
+            // } else if (state.cityStatus == GetCityStatus.failure) {
+            //   //TODO:create fail Bloc
+            //   return Container();
+            // } else {
               return SafeArea(
                 child: NestedScrollView(
                   headerSliverBuilder: (context, _) {
@@ -165,7 +165,7 @@ class _CityScreenState extends State<CityScreen> with TickerProviderStateMixin {
                   ),
                 ),
               );
-            }
+            // }
           },
         ),
       ),

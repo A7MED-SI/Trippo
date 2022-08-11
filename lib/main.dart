@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
             ],
             title: 'Trippo',
             theme: ThemeApp().getTheme(),
-            home: const LoadingScreen(),
+            home: const MainScreen(),
             onGenerateRoute: AppRouter.onGenerateRoute,
           );
         },
