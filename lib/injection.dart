@@ -1,4 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:trippo/core/features/ImageFeature/data/datasources/get_city_image_remote_data_source.dart';
+import 'package:trippo/core/features/ImageFeature/data/repositories/images_repository_impl.dart';
 import 'package:trippo/core/features/ImageFeature/domain/usecases/get_city_images_use_case.dart';
 import 'package:trippo/features/city/data/datasources/get_city_remote_data_source.dart';
 import 'package:trippo/features/city/data/datasources/get_hotels_of_city_remote_data_source.dart';
@@ -31,7 +33,16 @@ Future<void> appDependencies() async {
         () => GetCityImagesUseCase(imagesRepo: serviceLocator()),
       );
     //repository
-      
+      serviceLocator.registerLazySingleton<ImagesRepositoryImpl>(
+        () => ImagesRepositoryImpl(
+          getCityImageRemoteDataSource: serviceLocator(),
+          getPlaceImageRemoteDataSource: serviceLocator(),
+        ),
+      );
+    //dataSources
+      serviceLocator.registerLazySingleton(
+        () => GetCityImageRemoteDataSource(),
+      );
   //! Features - city
     //blocs
       serviceLocator.registerFactory(

@@ -31,7 +31,7 @@ Uri getPalceImages({required Map<String, dynamic> params}){
   }
 
   Uri getCity({required Map<String, dynamic> params}) {
-    return _mainUri(path: ApiUrls.getCityById, queryParameters: params);
+    return _mainUri(path: ApiUrls.getCityById+"${params["id"]}/show");
   }
 
   Uri getHotelsOfCity({required Map<String, dynamic> params}) {

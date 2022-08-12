@@ -1,6 +1,6 @@
 class ApiUrls{
   //TODO:add urls
-  static String getCityById = ""; 
+  static String getCityById = "mobile/city/"; 
   static String getHotelsOfCity="";
   static String getRestaurantsOfCity="";
   static String getThingsToDoOfCity="";

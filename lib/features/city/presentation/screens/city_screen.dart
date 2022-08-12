@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
@@ -29,8 +31,8 @@ class _CityScreenState extends State<CityScreen> with TickerProviderStateMixin {
         getThingsToDoCityUseCase: serviceLocator(),
         getRestaurantsOfCityUseCase: serviceLocator(),
         getHotelsOfCityUseCase: serviceLocator(),
-        getCityByIdUseCase: serviceLocator());
-      // ..add(const GetCityEvent(cityId: 0))
+        getCityByIdUseCase: serviceLocator())
+      ..add(const GetCityEvent(cityId: 1));
       // ..add(const GetHotelsOfCityEvent(cityId: 0))
       // ..add(const GetRestaurantsOfCityEvent(cityId: 0))
       // ..add(const GetThingsToDoCityEvent(cityId: 0));
@@ -46,13 +48,15 @@ class _CityScreenState extends State<CityScreen> with TickerProviderStateMixin {
       child: Scaffold(
         body: BlocBuilder<CityBloc, CityState>(
           builder: (context, state) {
-            // if (state.cityStatus == GetCityStatus.loading ||
-            //     state.cityStatus == GetCityStatus.initial) {
-            //   return const LoadingScreen();
-            // } else if (state.cityStatus == GetCityStatus.failure) {
-            //   //TODO:create fail Bloc
-            //   return Container();
-            // } else {
+            if (state.cityStatus == GetCityStatus.loading ||
+                state.cityStatus == GetCityStatus.initial) {
+                   log("Load");
+              return const LoadingScreen();
+            } else if (state.cityStatus == GetCityStatus.failure) {
+              log("Fail");
+              //TODO:create fail Bloc
+              return Container();
+            } else {
               return SafeArea(
                 child: NestedScrollView(
                   headerSliverBuilder: (context, _) {
@@ -165,7 +169,7 @@ class _CityScreenState extends State<CityScreen> with TickerProviderStateMixin {
                   ),
                 ),
               );
-            // }
+            }
           },
         ),
       ),
